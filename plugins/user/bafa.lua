@@ -1,11 +1,11 @@
 -- Buffer list preview and navigation/editing
 return {
-  dir = '~/code/bafa.nvim',
-  branch = 'dev',
+  'pytness/bafa.nvim',
+  branch = 'refactor',
   opts = {
     width = 60,
     height = 10,
-    title = ' Bafa ',
+    title = ' Bafa',
     title_pos = 'center',
     relative = 'editor',
     border = 'rounded',
@@ -28,5 +28,7 @@ return {
       'u',
       'U',
     },
+    -- last_used, name, number
+    sorting_algorithm = 'last_used',
   },
 }
