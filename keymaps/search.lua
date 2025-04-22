@@ -27,6 +27,7 @@ return {
   { 'n', '<leader>sW', fzf_factory 'grep_cWORD', { desc = 'Search WORD under cursor' } },
   { 'n', '<leader>sv', fzf_factory 'grep_visual', { desc = 'Search visual selection' } },
   { 'n', '<leader>sd', fzf_factory 'diagnostics_document', { desc = 'Search diagnostics' } },
+  { 'n', '<leader>sD', fzf_factory 'diagnostics_workspace', { desc = 'Search diagnostics in workspace' } },
   { 'n', '<leader>so', fzf_factory 'oldfiles', { desc = 'Search oldfiles' } },
   { 'n', '<leader>s.', fzf_factory 'resume', { desc = 'Resume search' } },
   { 'n', '<leader>s/', fzf_factory 'lines', { desc = 'Search in open buffers' } },
