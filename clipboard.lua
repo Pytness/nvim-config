@@ -11,21 +11,21 @@ local function paste_to_clipboard()
 end
 
 if utils.is_linux() then
-  -- vim.g.clipboard = {
-  --   name = 'wl-clipboard',
-  --
-  --   copy = {
-  --     ['+'] = { 'wl-copy' },
-  --     ['*'] = { 'wl-copy' },
-  --   },
-  --
-  --   paste = {
-  --     ['+'] = { 'wl-paste', '-n' },
-  --     ['*'] = { 'wl-paste', '-n' },
-  --   },
-  --
-  --   cache_enabled = false,
-  -- }
+  vim.g.clipboard = {
+    name = 'wl-clipboard',
+
+    copy = {
+      ['+'] = { 'wl-copy' },
+      ['*'] = { 'wl-copy' },
+    },
+
+    paste = {
+      ['+'] = { 'wl-paste', '-n' },
+      ['*'] = { 'wl-paste', '-n' },
+    },
+
+    cache_enabled = true,
+  }
 elseif utils.is_wsl() then
   vim.g.clipboard = {
     name = 'win32yank-wsl',
