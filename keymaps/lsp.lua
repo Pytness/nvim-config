@@ -4,12 +4,20 @@ local function toggle_hints()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end
 
+local function next_diagnostic()
+  vim.diagnostic.jump { count = -1 }
+end
+
+local function prev_diagnostic()
+  vim.diagnostic.jump { count = 1 }
+end
+
 return {
   -- Diagnostic keymaps
   { 'n', '<leader>f', 'za', { desc = 'Toggle Fold' } },
-  { 'n', '<leader>lk', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' } },
+  { 'n', '<leader>lk', next_diagnostic, { desc = 'Go to previous [D]iagnostic message' } },
+  { 'n', '<leader>lj', prev_diagnostic, { desc = 'Go to next [D]iagnostic message' } },
   { 'n', '<leader>lK', vim.diagnostic.reset, { desc = 'Clear all diagnostics' } },
-  { 'n', '<leader>lj', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' } },
 
   { 'n', '<leader>le', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' } },
   { 'n', '<leader>lq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' } },
