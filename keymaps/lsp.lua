@@ -5,11 +5,11 @@ local function toggle_hints()
 end
 
 local function next_diagnostic()
-  vim.diagnostic.jump { count = -1 }
+  vim.diagnostic.jump { count = -1, float = true }
 end
 
 local function prev_diagnostic()
-  vim.diagnostic.jump { count = 1 }
+  vim.diagnostic.jump { count = 1, float = true }
 end
 
 return {
