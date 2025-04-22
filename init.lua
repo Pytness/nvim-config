@@ -12,3 +12,4 @@ require 'autocmd'
 require 'lazy-loader'
 
 require 'keymaps'
+require 'commands'
