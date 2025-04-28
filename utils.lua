@@ -45,12 +45,15 @@ M.load_plugins = function(module_path)
   return plugins
 end
 
--- Check if the current OS is linux
+M.is_docker = function()
+  -- Docker containers creates .dockerenv file in the root directory
+  return vim.fn.filereadable('/.dockerenv') == 1
+end
+
 M.is_linux = function()
   return vim.fn.has 'linux' == 1
 end
 
--- Check if the current OS is linux under WSL
 M.is_wsl = function()
   return vim.fn.has 'wsl' == 1
 end

@@ -10,7 +10,9 @@ local function paste_to_clipboard()
   return text:split '\n'
 end
 
-if utils.is_linux() then
+if utils.is_docker() then
+  -- TODO: Add support system clipboard when inside of docker
+elseif utils.is_linux() then
   vim.g.clipboard = {
     name = 'wl-clipboard',
 
