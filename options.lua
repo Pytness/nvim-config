@@ -60,3 +60,6 @@ vim.opt.scrolloff = 10
 
 -- Set highlight on search
 vim.opt.hlsearch = true
+
+-- Set floating windows border to rounded
+vim.opt.winborder = 'rounded'
