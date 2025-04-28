@@ -1,1 +1,1 @@
-require 'commands.kulala'
+-- no commands for now
