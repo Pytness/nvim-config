@@ -17,16 +17,7 @@ return {
 
   opts = {
 
-    border = {
-      { '╭', 'FloatBorder' },
-      { '─', 'FloatBorder' },
-      { '╮', 'FloatBorder' },
-      { '│', 'FloatBorder' },
-      { '╯', 'FloatBorder' },
-      { '─', 'FloatBorder' },
-      { '╰', 'FloatBorder' },
-      { '│', 'FloatBorder' },
-    },
+    border = "rounded",
     servers = {
       -- clangd = {},
       -- gopls = {},
@@ -141,19 +132,7 @@ return {
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
       callback = function(event)
-        local border = {
-          -- ╭─╮
-          -- │ │
-          -- ╰─╯
-          { '╭', 'FloatBorder' },
-          { '─', 'FloatBorder' },
-          { '╮', 'FloatBorder' },
-          { '│', 'FloatBorder' },
-          { '╯', 'FloatBorder' },
-          { '─', 'FloatBorder' },
-          { '╰', 'FloatBorder' },
-          { '│', 'FloatBorder' },
-        }
+        local border = "rounded"
 
         local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 
