@@ -18,7 +18,7 @@ return {
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
       callback = function(event)
-        local border = "rounded"
+        local border = 'rounded'
 
         local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 
@@ -69,7 +69,7 @@ return {
     require('mason-lspconfig').setup_handlers {
       function(name)
         vim.lsp.enable(name)
-      end
+      end,
     }
   end,
 }
