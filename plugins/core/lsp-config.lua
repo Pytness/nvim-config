@@ -64,12 +64,7 @@ return {
     require('mason-lspconfig').setup {
       ensure_installed = ensure_installed,
       automatic_installation = true,
-    }
-
-    require('mason-lspconfig').setup_handlers {
-      function(name)
-        vim.lsp.enable(name)
-      end,
+      automatic_enable = true,
     }
   end,
 }
