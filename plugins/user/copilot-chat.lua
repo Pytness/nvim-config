@@ -33,7 +33,7 @@ return {
   opts = {
     debug = false,
     clear_chat_on_new_prompt = false,
-    -- model = 'claude-3.5-sonnet',
+    model = 'claude-3.7-sonnet',
     prompts = {
       Explain = {
         prompt = '/COPILOT_EXPLAIN Write a detailed and technical explanation of the following code.',
