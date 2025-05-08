@@ -28,8 +28,8 @@ local function force_refresh()
   }
 end
 
-local show_dotfiles = false
-local show_gitignored = false
+local show_dotfiles = true
+local show_gitignored = true
 
 local is_dotfile = function(fs_entry)
   return vim.startswith(fs_entry.name, '.')
