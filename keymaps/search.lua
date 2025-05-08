@@ -31,5 +31,8 @@ return {
   { 'n', '<leader>so', fzf_factory 'oldfiles', { desc = 'Search oldfiles' } },
   { 'n', '<leader>s.', fzf_factory 'resume', { desc = 'Resume search' } },
   { 'n', '<leader>s/', fzf_factory 'lines', { desc = 'Search in open buffers' } },
+  { 'n', '<leader>sL', fzf_factory 'lsp_document_symbols', { desc = 'LSP symbols in document' } },
+  { 'n', '<leader>sl', fzf_factory 'lsp_workspace_symbols', { desc = 'LSP symbols in workspace' } },
+  { 'n', '<leader>sm', fzf_factory 'marks', { desc = 'LSP symbols in document' } },
   { 'n', '<leader>st', search_todo, { desc = 'Search todo' } },
 }
