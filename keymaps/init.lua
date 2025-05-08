@@ -10,6 +10,9 @@ vim.cmd 'nnoremap P "+P'
 vim.cmd 'vnoremap p "+p'
 vim.cmd 'vnoremap P "+P'
 
+-- Disable q:
+vim.cmd 'nnoremap q: <nop>'
+
 local wk = require 'which-key'
 
 wk.add {
