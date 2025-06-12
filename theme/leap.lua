@@ -7,13 +7,13 @@ return {
     bold = true,
     nocombine = true,
   },
-  LeapLabelPrimary = {
+  LeapLabel = {
     bg = colors.black,
     fg = colors.leap_primary_label,
     bold = false,
     nocombine = true,
   },
-  LeapLabelSecondary = {
+  LeapLabelDimmed = {
     bg = colors.black,
     fg = colors.leap_secondary_label,
     bold = false,
