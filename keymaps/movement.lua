@@ -32,4 +32,7 @@ return {
   { { 'n', 'v' }, 'gk', ':Treewalker Up<CR>', { noremap = true } },
   { { 'n', 'v' }, 'gh', ':Treewalker Left<CR>', { noremap = true } },
   { { 'n', 'v' }, 'gl', ':Treewalker Right<CR>', { noremap = true } },
+
+  { { 'n', 'v' }, '[h', ':Gitsigns prev_hunk<CR>', { desc = 'Prev git hunk', noremap = true } },
+  { { 'n', 'v' }, ']h', ':Gitsigns next_hunk<CR>', { desc = 'Next git hunk', noremap = true } },
 }
