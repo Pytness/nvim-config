@@ -1,16 +1,9 @@
 return {
-  cmd = "rust-analyzer",
+  cmd = 'rust-analyzer',
   settings = {
     ['rust-analyzer'] = {
 
-      checkOnSave = {
-        allFeatures = true,
-        command = 'clippy',
-        extraArgs = {
-          '--',
-          '--no-deps',
-        },
-      },
+      checkOnSave = true,
 
       imports = {
         granularity = {
@@ -65,5 +58,5 @@ return {
         },
       },
     },
-  }
+  },
 }
