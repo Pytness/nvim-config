@@ -61,10 +61,10 @@ return {
 
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
-    require('mason-lspconfig').setup {
-      ensure_installed = ensure_installed,
-      automatic_installation = true,
-      automatic_enable = true,
-    }
+    -- require('mason-lspconfig').setup {
+    --   ensure_installed = ensure_installed,
+    --   automatic_installation = true,
+    --   automatic_enable = true,
+    -- }
   end,
 }
