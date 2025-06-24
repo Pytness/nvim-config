@@ -59,7 +59,7 @@ end
 
 return {
   { 'n', 'ygG', 'ggVGy', { desc = 'Yank whole buffer' } },
-  { { 'n', 'v' }, 'gs', google_search, { desc = 'Search on google' } },
+  { { 'n', 'v' }, 'gS', google_search, { desc = 'Search on google' } },
   { 'n', '<leader>mm', '<cmd>MarkdownPreviewToggle<cr>', { desc = 'Toggle markdown preview' } },
   { { 'n', 'x' }, '<leader>ms', "<cmd>'<,'>sort<cr>", { desc = 'Sort lines' } },
 }

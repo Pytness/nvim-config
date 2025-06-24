@@ -1,6 +1,9 @@
 local function quit()
   vim.cmd 'silent q'
 end
+function remote_action()
+  require('leap.remote').action()
+end
 
 return {
   { 'i', 'jj', '<ESC>j', { silent = true } },
@@ -27,6 +30,7 @@ return {
   { 'v', '<', '<gv' },
   -- Leap
   { 'n', 's', '<Plug>(leap)' },
+  { { 'n', 'x', 'o' }, 'gs', remote_action, { desc = 'Remote action' } },
 
   { { 'n', 'v' }, 'gj', ':Treewalker Down<CR>', { noremap = true } },
   { { 'n', 'v' }, 'gk', ':Treewalker Up<CR>', { noremap = true } },
