@@ -87,6 +87,9 @@ local highlights = {
   DiagnosticHint = { fg = colors.green }, -- Hint
   DiagnosticDefault = { fg = colors.blue_purple }, -- Test Error
   DiagnosticTest = { fg = colors.purple }, -- Test
+  DiagnosticUnderlineError = { sp = colors.red, undercurl = true }, -- Underline for errors
+  DiagnosticUnderlineWarn = { sp = colors.yellow, underdashed = true }, -- Underline for errors
+
   LspInlayHint = { fg = colors.comment_grey }, -- Inlay Hint
   FloatTitle = { fg = colors.white, bg = colors.black }, -- Float title
   FloatBorder = { fg = colors.white, bg = colors.black }, -- Float border
