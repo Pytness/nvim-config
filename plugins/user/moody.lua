@@ -11,9 +11,9 @@ return {
     -- Some colours might look better more dark, so set a higher value
     -- will result in a darker shade.
     blends = {
-      normal = 0.2,
-      insert = 0.2,
-      visual = 0.25,
+      normal = 0.3,
+      insert = 0.3,
+      visual = 0.3,
       command = 0.2,
       operator = 0.2,
       replace = 0.2,
@@ -28,7 +28,7 @@ return {
     colors = {
       normal = colors.blue,
       insert = colors.white,
-      visual = colors.white,
+      visual = colors.purple,
       replace = colors.green,
       -- command = '#EB788B',
       -- operator = '#FF8F40',
