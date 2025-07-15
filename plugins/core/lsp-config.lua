@@ -53,6 +53,7 @@ return {
 
     local ensure_installed = {
       'lua_ls',
+      'stylua',
       'pylsp',
       'rust_analyzer',
       'omnisharp',
