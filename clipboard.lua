@@ -2,11 +2,11 @@ local utils = require 'utils'
 
 local function yank_to_clipboard(lines)
   local text = table.concat(lines, '\r\n')
-  vim.fn.system('win32yank-wsl -i --crlf', text)
+  vim.fn.system('wclip.exe -i', text)
 end
 
 local function paste_to_clipboard()
-  local text = vim.fn.system 'win32yank-wsl -o --lf'
+  local text = vim.fn.system 'wclip.exe -o | sed -e "s/\r//g"'
   return text:split '\n'
 end
 
