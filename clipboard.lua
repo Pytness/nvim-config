@@ -12,22 +12,6 @@ end
 
 if utils.is_docker() then
   -- TODO: Add support system clipboard when inside of docker
-elseif utils.is_linux() then
-  vim.g.clipboard = {
-    name = 'wl-clipboard',
-
-    copy = {
-      ['+'] = { 'wl-copy' },
-      ['*'] = { 'wl-copy' },
-    },
-
-    paste = {
-      ['+'] = { 'wl-paste', '-n' },
-      ['*'] = { 'wl-paste', '-n' },
-    },
-
-    cache_enabled = true,
-  }
 elseif utils.is_wsl() then
   vim.g.clipboard = {
     name = 'win32yank-wsl',
@@ -43,5 +27,21 @@ elseif utils.is_wsl() then
     },
 
     cache_enabled = false,
+  }
+elseif utils.is_linux() then
+  vim.g.clipboard = {
+    name = 'wl-clipboard',
+
+    copy = {
+      ['+'] = { 'wl-copy' },
+      ['*'] = { 'wl-copy' },
+    },
+
+    paste = {
+      ['+'] = { 'wl-paste', '-n' },
+      ['*'] = { 'wl-paste', '-n' },
+    },
+
+    cache_enabled = true,
   }
 end
