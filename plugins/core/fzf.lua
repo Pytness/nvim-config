@@ -5,6 +5,9 @@ return {
   },
   opts = {
     fzf_opts = { ['--cycle'] = true, ['--layout'] = 'default', ['--marker'] = '+' },
+    defaults = {
+      fd_opts = [[--color=never --type f --type l --exclude .git]],
+    },
     winopts = {
       width = 0.8,
       height = 0.9,
