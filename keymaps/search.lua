@@ -33,6 +33,6 @@ return {
   { 'n', '<leader>s/', fzf_factory 'lines', { desc = 'Search in open buffers' } },
   { 'n', '<leader>sL', fzf_factory 'lsp_document_symbols', { desc = 'LSP symbols in document' } },
   { 'n', '<leader>sl', fzf_factory 'lsp_workspace_symbols', { desc = 'LSP symbols in workspace' } },
-  { 'n', '<leader>sm', fzf_factory 'marks', { desc = 'LSP symbols in document' } },
+  { 'n', '<leader>sm', fzf_factory 'marks', { desc = 'Marks' } },
   { 'n', '<leader>st', search_todo, { desc = 'Search todo' } },
 }
