@@ -17,9 +17,9 @@ local wk = require 'which-key'
 
 wk.add {
   { '<leader>b', group = '[b]uffer' },
-  { '<leader>d', group = '[d]ocument' },
   { '<leader>r', group = '[r]ename' },
   { '<leader>s', group = '[s]earch' },
+  { '<leader>sl', group = 'Search lsp' },
   { '<leader>h', group = '[h]arpoon' },
   { '<leader>n', group = '[n]eovim' },
   { '<leader>l', group = '[l]sp' },

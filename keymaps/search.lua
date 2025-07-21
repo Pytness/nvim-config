@@ -30,14 +30,13 @@ return {
   { 'n', '<leader>sW', fzf_factory 'grep_cWORD', { desc = 'Search WORD under cursor' } },
   { 'n', '<leader>sv', fzf_factory 'grep_visual', { desc = 'Search visual selection' } },
 
-  { 'n', '<leader>sd', fzf_factory 'diagnostics_document', { desc = 'Search diagnostics' } },
-  { 'n', '<leader>sD', fzf_factory 'diagnostics_workspace', { desc = 'Search diagnostics in workspace' } },
-
   { 'n', '<leader>so', fzf_factory 'oldfiles', { desc = 'Search oldfiles' } },
   { 'n', '<leader>s.', fzf_factory 'resume', { desc = 'Resume search' } },
 
-  { 'n', '<leader>sL', fzf_factory 'lsp_document_symbols', { desc = 'LSP symbols in document' } },
-  { 'n', '<leader>sl', fzf_factory 'lsp_workspace_symbols', { desc = 'LSP symbols in workspace' } },
+  { 'n', '<leader>sls', fzf_factory 'lsp_document_symbols', { desc = 'LSP symbols in document' } },
+  { 'n', '<leader>slS', fzf_factory 'lsp_workspace_symbols', { desc = 'LSP symbols in workspace' } },
+  { 'n', '<leader>sld', fzf_factory 'diagnostics_document', { desc = 'Search diagnostics' } },
+  { 'n', '<leader>slD', fzf_factory 'diagnostics_workspace', { desc = 'Search diagnostics in workspace' } },
 
   { 'n', '<leader>sm', fzf_factory 'marks', { desc = 'Marks' } },
   { 'n', '<leader>s/', fzf_factory 'lines', { desc = 'Search in open buffers' } },
