@@ -18,9 +18,6 @@ local function search_todo()
 end
 
 return {
-  { 'n', '<leader>sh', fzf_factory 'help_tags', { desc = 'Search help tags' } },
-
-  { 'n', '<leader>sk', fzf_factory 'keymaps', { desc = 'Search keymaps' } },
   { 'n', '<leader>sf', fzf_factory 'files', { desc = 'Search files' } },
 
   { 'n', '<leader>ss', fzf_factory 'builtin', { desc = 'Search fzf builtin commands' } },
