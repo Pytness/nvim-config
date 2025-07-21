@@ -38,7 +38,6 @@ return {
   { 'n', '<leader>sld', fzf_factory 'diagnostics_document', { desc = 'Search diagnostics' } },
   { 'n', '<leader>slD', fzf_factory 'diagnostics_workspace', { desc = 'Search diagnostics in workspace' } },
 
-  { 'n', '<leader>sm', fzf_factory 'marks', { desc = 'Marks' } },
   { 'n', '<leader>s/', fzf_factory 'lines', { desc = 'Search in open buffers' } },
 
   { 'n', '<leader>st', search_todo, { desc = 'Search todo' } },
