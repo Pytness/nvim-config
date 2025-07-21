@@ -14,7 +14,7 @@ if utils.is_docker() then
   -- TODO: Add support system clipboard when inside of docker
 elseif utils.is_wsl() then
   vim.g.clipboard = {
-    name = 'win32yank-wsl',
+    name = 'wsl',
 
     copy = {
       ['+'] = yank_to_clipboard,
