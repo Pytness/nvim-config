@@ -1,7 +1,6 @@
 return {
   -- copilot chat
   'CopilotC-Nvim/CopilotChat.nvim',
-  -- lazy = true,
   branch = 'main',
   build = 'make tiktoken',
   dependencies = {
@@ -15,17 +14,17 @@ return {
     'CopilotChatCommitStaged',
     'CopilotChatDocs',
     'CopilotChatExplain',
-    -- 'CopilotChatExplainAdvanced',
+    'CopilotChatExplainAdvanced',
     'CopilotChatFix',
     'CopilotChatFixDiagnostic',
-    -- 'CopilotChatImplement',
-    -- 'CopilotChatImplementInline',
+    'CopilotChatImplement',
+    'CopilotChatImplementInline',
     'CopilotChatLeetTest',
     'CopilotChatModel',
     'CopilotChatModels',
     'CopilotChatOptimize',
     'CopilotChatReadable',
-    -- 'CopilotChatRefactor',
+    'CopilotChatRefactor',
     'CopilotChatReview',
     'CopilotChatTests',
     'CopilotChatToggle',
@@ -36,31 +35,39 @@ return {
     model = 'claude-3.7-sonnet',
     prompts = {
       Explain = {
-        prompt = '/COPILOT_EXPLAIN Write a detailed and technical explanation of the following code.',
+        prompt = 'Write a detailed and technical explanation of the following code.',
+        system_prompt = 'COPILOT_EXPLAIN',
       },
       Review = {
-        prompt = '/COPILOT_REVIEW Review the selected code.',
+        prompt = 'Review the selected code.',
+        system_prompt = 'COPILOT_REVIEW',
       },
       Fix = {
-        prompt = '/COPILOT_GENERATE There is an issue in this code. Rewrite the code to show it with the bug fixed.',
+        prompt = 'There is an issue in this code. Rewrite the code to show it with the bug fixed.',
+        system_prompt = 'COPILOT_GENERATE',
       },
       Optimize = {
-        prompt = '/COPILOT_GENERATE Optimize the selected code to improve performance and readablilty.',
+        prompt = 'Optimize the selected code to improve performance and readablilty.',
+        system_prompt = 'COPILOT_GENERATE',
       },
       Docs = {
-        prompt = '/COPILOT_GENERATE Add documentation and comments for the following code. Follow these rules:\n1) The comments should not duplicate the code.\n2) Explain unidiomatic code.',
+        prompt = 'Add documentation and comments for the following code. Follow these rules:\n1) The comments should not duplicate the code.\n2) Explain unidiomatic code.',
+        system_prompt = 'COPILOT_GENERATE',
       },
       Tests = {
-        prompt = '/COPILOT_GENERATE Generate tests for my code.',
+        prompt = 'Generate tests for my code.',
+        system_prompt = 'COPILOT_GENERATE',
       },
       FixDiagnostic = {
         prompt = 'Please assist with the following diagnostic issue in file:',
       },
       Commit = {
-        prompt = 'Write commit message for the change with commitizen convention.\nMake sure the title has maximum 50 characters and message is wrapped at 72 characters.\nWrap the whole message in code block with language gitcommit.',
+        prompt = 'Write commit message for the change with commitizen convention. Make sure the title has maximum 50 characters and message is wrapped at 72 characters. Wrap the whole message in code block with language gitcommit.',
+        context = 'git:unstaged',
       },
       CommitStaged = {
         prompt = 'Write commit message for the change with commitizen convention. Make sure the title has maximum 50 characters and message is wrapped at 72 characters. Wrap the whole message in code block with language gitcommit.',
+        context = 'git:staged',
       },
     },
     mappings = {
@@ -82,5 +89,4 @@ return {
       },
     },
   },
-  -- See Commands section for default commands if you want to lazy load on them
 }

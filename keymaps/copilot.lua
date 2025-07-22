@@ -8,7 +8,9 @@ vim.api.nvim_create_user_command('CopilotChatLeetTest', function()
   local chat = require 'CopilotChat'
 
   chat.reset()
-  chat.ask '@buffer Generate tests for this problem, do not implement the solution.'
+  chat.ask('Generate tests for this problem, do not implement the solution.', {
+    context = 'buffers',
+  })
 end, { nargs = '*', range = true })
 
 vim.api.nvim_create_user_command('CopilotChatRefactor', function()
@@ -19,8 +21,11 @@ end, { nargs = '*', range = true })
 vim.api.nvim_create_user_command('CopilotChatExplainAdvanced', function()
   local chat = require 'CopilotChat'
   chat.ask(
-    '/COPILOT_EXPLAIN Write a detailed and technical explanation of the following code. Assume the user is a senior programmer and is extremelly knowledgeable of programming topics',
-    { selection = selection }
+    'Write a detailed and technical explanation of the following code. Assume the user is a senior programmer and is extremelly knowledgeable of programming topics',
+    {
+      system_prompt = 'COPILOT_EXPLAIN',
+      selection = selection,
+    }
   )
 end, { nargs = '*', range = true })
 
@@ -28,12 +33,13 @@ vim.api.nvim_create_user_command('CopilotChatImplement', function()
   local chat = require 'CopilotChat'
   chat.ask(
     [[
-    @buffers
-
     Write the missing implementations of the following code.
     The user will use your code and `git patch` it into their codebase.
     ]],
-    { selection = selection }
+    {
+      context = 'buffers',
+      selection = selection,
+    }
   )
 end, { nargs = '*', range = true })
 
@@ -41,14 +47,13 @@ vim.api.nvim_create_user_command('CopilotChatImplementInline', function()
   local chat = require 'CopilotChat'
   chat.ask(
     [[
-    @buffers
-
     Write the missing implementations of the selected code.
     The user will use your code and `git patch` it into their codebase.
     Only write the implementations.
     ]],
     {
       selection = selection,
+      context = 'buffers',
       callback = function(response, source)
         -- get code inside ```<lang>\n<code>\n```
 
@@ -95,12 +100,13 @@ vim.api.nvim_create_user_command('CopilotChatReadable', function()
   local chat = require 'CopilotChat'
   chat.ask(
     [[
-    @buffers
-
     Make the following code more readable. Follow common conventions and best practices.
     Rename variables, functions, and classes as needed using meaningful names.
     ]],
-    { selection = selection }
+    {
+      context = 'buffers',
+      selection = selection,
+    }
   )
 end, { nargs = '*', range = true })
 
