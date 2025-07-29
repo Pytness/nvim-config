@@ -60,6 +60,8 @@ end
 return {
   { 'n', 'ygG', 'ggVGy', { desc = 'Yank whole buffer' } },
   { { 'n', 'v' }, 'gS', google_search, { desc = 'Search on google' } },
-  { 'n', '<leader>mm', '<cmd>MarkdownPreviewToggle<cr>', { desc = 'Toggle markdown preview' } },
+
   { { 'n', 'x' }, '<leader>ms', "<cmd>'<,'>sort<cr>", { desc = 'Sort lines' } },
+  { 'n', '<leader>mm', '<cmd>MarkdownPreviewToggle<cr>', { desc = 'Toggle markdown preview' } },
+  { 'n', '<leader>ml', '<cmd>LazyGit<cr>', { desc = 'LazyGit' } },
 }
