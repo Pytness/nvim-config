@@ -1,5 +1,4 @@
 ---@param start_line number
----@param end_line number
 local function get_folds(start_line)
   local folds = {}
 
