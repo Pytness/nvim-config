@@ -1,4 +1,40 @@
-function focus(data)
+---@param start_line int
+---@param end_line int
+local function correct_cursor(start_line, end_line)
+  local cursor = vim.api.nvim_win_get_cursor(0)
+  local current_line = cursor[1]
+
+  if current_line < start_line then
+    vim.api.nvim_win_set_cursor(0, { start_line, 0 })
+  elseif current_line > end_line then
+    vim.api.nvim_win_set_cursor(0, { end_line, 0 })
+  end
+end
+
+---@param bufnr int
+---@param start_line int
+---@param end_line int
+local function create_autocmds(bufnr, start_line, end_line)
+  vim.api.nvim_create_augroup('FocusCursorMoved', { clear = true })
+
+  vim.api.nvim_create_autocmd('CursorMoved', {
+    buffer = bufnr,
+    group = 'FocusCursorMoved',
+    callback = function()
+      correct_cursor(start_line, end_line)
+    end,
+  })
+
+  vim.api.nvim_create_autocmd('CursorMovedI', {
+    buffer = bufnr,
+    group = 'FocusCursorMoved',
+    callback = function()
+      correct_cursor(start_line, end_line)
+    end,
+  })
+end
+
+local function focus()
   local cursor = vim.api.nvim_win_get_cursor(0)
 
   local start_line = cursor[1]
@@ -30,6 +66,13 @@ function focus(data)
 
     on_open = function(win)
       vim.api.nvim_win_set_cursor(win, { start_line, 0 })
+      local bufnr = vim.api.nvim_win_get_buf(win)
+
+      create_autocmds(bufnr, start_line, end_line)
+    end,
+
+    on_close = function(win)
+      vim.api.nvim_clear_autocmds { group = 'FocusCursorMoved' }
     end,
   }
 end
