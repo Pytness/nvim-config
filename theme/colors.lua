@@ -3,6 +3,7 @@ local colors = {
   light_red = '#ff869a',
   dark_red = '#BE5046',
   green = '#C3E88D',
+  dark_green = '#A6E22E',
   yellow = '#ffcb6b',
   dark_yellow = '#F78C6C',
   blue = '#8cb8ff',
