@@ -1,5 +1,5 @@
----@param start_line int
----@param end_line int
+---@param start_line number
+---@param end_line number
 local function correct_cursor(start_line, end_line)
   local cursor = vim.api.nvim_win_get_cursor(0)
   local current_line = cursor[1]
@@ -11,9 +11,9 @@ local function correct_cursor(start_line, end_line)
   end
 end
 
----@param bufnr int
----@param start_line int
----@param end_line int
+---@param bufnr number
+---@param start_line number
+---@param end_line number
 local function create_autocmds(bufnr, start_line, end_line)
   vim.api.nvim_create_augroup('FocusCursorMoved', { clear = true })
 
@@ -50,9 +50,6 @@ local function focus()
   local esc = vim.api.nvim_replace_termcodes('<Esc>', true, false, true)
   vim.api.nvim_feedkeys(esc, 'n', true)
 
-  print('Focus lines:', start_line, end_line)
-  print('Line count:', line_count)
-
   require('focus').toggle {
     line1 = start_line,
     line2 = end_line,
@@ -71,7 +68,7 @@ local function focus()
       create_autocmds(bufnr, start_line, end_line)
     end,
 
-    on_close = function(win)
+    on_close = function()
       vim.api.nvim_clear_autocmds { group = 'FocusCursorMoved' }
     end,
   }
