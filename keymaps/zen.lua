@@ -105,7 +105,6 @@ local function focus()
     line2 = end_line,
 
     window = {
-      -- Set the cursor to the first line of the focus window
       -- The focus window includes the first and last line of the buffer
       -- as folds, so we add 2 to the height as padding
       height = line_count + 2,
