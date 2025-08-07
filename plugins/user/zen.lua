@@ -1,6 +1,6 @@
 return {
   'cdmill/focus.nvim',
-  cmd = { 'Focus', 'Zen', 'Narrow' },
+  module = 'focus',
   opts = {
     border = 'none',
     zindex = 40, -- zindex of the focus window. Should be less than 50, which is the float default
@@ -40,6 +40,5 @@ return {
       -- diagnostics = { enabled = false }, -- disables diagnostics
       -- todo = { enabled = false }, -- if set to "true", todo-comments.nvim highlights will be disabled
     },
-    -- callback where you can add custom code when the focus window opens
   },
 }
