@@ -67,15 +67,7 @@ end
 local function create_autocmds(bufnr, start_line, end_line)
   vim.api.nvim_create_augroup('FocusCursorMoved', { clear = true })
 
-  vim.api.nvim_create_autocmd('CursorMoved', {
-    buffer = bufnr,
-    group = 'FocusCursorMoved',
-    callback = function()
-      correct_cursor(start_line, end_line)
-    end,
-  })
-
-  vim.api.nvim_create_autocmd('CursorMovedI', {
+  vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
     buffer = bufnr,
     group = 'FocusCursorMoved',
     callback = function()
