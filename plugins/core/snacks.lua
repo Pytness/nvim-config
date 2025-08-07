@@ -8,6 +8,7 @@ return {
         gui = {
           nerdFontsVersion = '3',
         },
+        promptToReturnFromSubprocess = false,
       },
     },
   },
