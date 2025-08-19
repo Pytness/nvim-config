@@ -1,3 +1,6 @@
+local utils = require 'utils'
+local set_keymaps = utils.set_keymaps
+
 -- " " Copy to clipboard
 vim.cmd 'vnoremap  y  "+y'
 vim.cmd 'nnoremap  Y  "+yg_'
@@ -30,20 +33,9 @@ wk.add {
   { '<leader>z', group = '[Z]en mode' },
 }
 
--- @keymaps: {string | table, string, string | function, table?}
-local function set_keymaps(mappings)
-  for _, keymap in ipairs(mappings) do
-    local mode = keymap[1]
-    local key = keymap[2]
-    local action = keymap[3]
-    local options = keymap[4] or {}
-
-    vim.keymap.set(mode, key, action, options)
-  end
-end
-
 set_keymaps(require 'keymaps.cargo')
 set_keymaps(require 'keymaps.copilot')
+set_keymaps(require 'keymaps.dial')
 set_keymaps(require 'keymaps.git')
 set_keymaps(require 'keymaps.harpoon')
 set_keymaps(require 'keymaps.lsp')
