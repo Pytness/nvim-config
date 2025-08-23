@@ -1,3 +1,5 @@
+local ms = require('vim.lsp.protocol').Methods
+
 local M = {}
 
 M.merge_arrays = function(...)
@@ -47,7 +49,7 @@ end
 
 M.is_docker = function()
   -- Docker containers creates .dockerenv file in the root directory
-  return vim.fn.filereadable('/.dockerenv') == 1
+  return vim.fn.filereadable '/.dockerenv' == 1
 end
 
 M.is_linux = function()
@@ -56,6 +58,33 @@ end
 
 M.is_wsl = function()
   return vim.fn.has 'wsl' == 1
+end
+
+--- Set keymaps in Neovim
+--- @param mappings table<string | table, string, string | function, table?>[]
+M.set_keymaps = function(mappings)
+  for _, keymap in ipairs(mappings) do
+    local mode = keymap[1]
+    local key = keymap[2]
+    local action = keymap[3]
+    local options = keymap[4] or {}
+
+    vim.keymap.set(mode, key, action, options)
+  end
+end
+
+M.close_hover = function()
+  local win = vim.api.nvim_get_current_win()
+
+  local buffer = nil
+
+  if vim.w[win] ~= nil then
+    buffer = vim.w[win][ms.textDocument_hover]
+  end
+
+  if buffer and vim.api.nvim_buf_is_valid(buffer) then
+    vim.api.nvim_win_close(win, true)
+  end
 end
 
 return M
