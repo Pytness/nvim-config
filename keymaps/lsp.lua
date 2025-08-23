@@ -1,4 +1,5 @@
 local fzf = require 'fzf-lua'
+local utils = require 'utils'
 
 local function toggle_hints()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
@@ -10,6 +11,18 @@ end
 
 local function prev_diagnostic()
   vim.diagnostic.jump { count = 1, float = true }
+end
+
+--- Hover using 'BufLeave' to handle jumping to the definition
+local function hover()
+  vim.lsp.buf.hover {
+    close_events = { 'CursorMoved', 'CursorMovedI', 'InsertCharPre', 'BufLeave' },
+  }
+end
+
+local function jump_to_definition()
+  -- utils.close_hover()
+  vim.lsp.buf.definition()
 end
 
 return {
@@ -35,10 +48,12 @@ return {
   { 'n', '<leader>la', vim.lsp.buf.code_action, { desc = '[C]ode [A]ction' } },
 
   -- Opens a popup that displays documentation about the word under your cursor
-  { 'n', 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' } },
+  { 'n', 'K', hover, { desc = 'Hover Documentation' } },
 
-  { 'n', '<leader>ld', vim.lsp.buf.declaration, { desc = '[G]oto [D]eclaration' } },
-  { 'n', '<leader>lD', vim.lsp.buf.definition, { desc = '[G]oto [D]eclaration' } },
+  { 'n', '<leader>ld', vim.lsp.buf.declaration, { desc = '[G]oto [d]eclaration' } },
+  { 'n', '<leader>lD', vim.lsp.buf.definition, { desc = '[G]oto [D]efinition' } },
   { 'n', '<leader>lt', vim.lsp.buf.type_definition, { desc = 'Type definition' } },
   { 'n', '<leader>lh', toggle_hints, { desc = 'Show inlay [H]ints' } },
+
+  { 'n', '<C-]', jump_to_definition, { noremap = true } },
 }
