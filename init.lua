@@ -5,7 +5,6 @@ package.path = nvim_dir .. '?.lua;' .. package.path
 package.path = nvim_dir .. '?/?.lua;' .. package.path
 package.path = nvim_dir .. '?/init.lua;' .. package.path
 
-require 'theme'
 require 'libs'
 require 'options'
 require 'autocmd'
@@ -13,3 +12,4 @@ require 'lazy-loader'
 
 require 'keymaps'
 require 'commands'
+vim.cmd 'colorscheme palenight'

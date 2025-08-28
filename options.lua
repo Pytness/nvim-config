@@ -32,15 +32,12 @@ vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
 
--- Decrease update time
 vim.opt.updatetime = 250
 
--- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
-vim.opt.timeoutlen = 250
+vim.opt.timeoutlen = 500
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
