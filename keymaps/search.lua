@@ -5,6 +5,13 @@ local function fzf_factory(name)
   end
 end
 
+local function project_oldfiles()
+  return function()
+    local fzf = require 'fzf-lua'
+    return fzf.oldfiles { cwd_only = true }
+  end
+end
+
 local function search_todo()
   local todo_keywords = '(FIX|BUG|ISSUE|TODO|HACK|WARN|WARNING|XXX|NOTE|INFO|PERF|OPTIM|PERFORMANCE|OPTIMIZE|TEST)(.*){,16}:'
   local fzf = require 'fzf-lua'
@@ -27,7 +34,8 @@ return {
   { 'n', '<leader>sW', fzf_factory 'grep_cWORD', { desc = 'Search WORD under cursor' } },
   { 'n', '<leader>sv', fzf_factory 'grep_visual', { desc = 'Search visual selection' } },
 
-  { 'n', '<leader>so', fzf_factory 'oldfiles', { desc = 'Search oldfiles' } },
+  { 'n', '<leader>so', project_oldfiles(), { desc = 'Search cwd oldfiles' } },
+  { 'n', '<leader>sO', fzf_factory 'oldfiles', { desc = 'Search global oldfiles' } },
   { 'n', '<leader>s.', fzf_factory 'resume', { desc = 'Resume search' } },
 
   { 'n', '<leader>sls', fzf_factory 'lsp_document_symbols', { desc = 'LSP symbols in document' } },
