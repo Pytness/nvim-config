@@ -16,7 +16,7 @@ end
 --- Hover using 'BufLeave' to handle jumping to the definition
 local function hover()
   vim.lsp.buf.hover {
-    close_events = { 'CursorMoved', 'CursorMovedI', 'InsertCharPre', 'BufLeave' },
+    close_events = { 'CursorMoved', 'CursorMovedI', 'InsertCharPre' },
   }
 end
 
