@@ -10,6 +10,8 @@ end
 
 return {
   { 'n', '<leader>e', toggle_minifiles, { desc = 'Toggle file tree' } },
+  { 't', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' } },
+  { 'n', '<leader>tt', '<cmd>terminal<cr>', { desc = 'Toggle terminal' } },
 
   { 'n', '<leader>sb', toggle_bafa, { desc = 'Close diffview' } },
   { 'n', '<leader>bn', '<cmd>bnext<cr>', { desc = 'Next buffer' } },
