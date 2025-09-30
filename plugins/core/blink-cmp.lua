@@ -1,8 +1,7 @@
 -- Adds completion
 return {
   'saghen/blink.cmp',
-  lazy = false, -- lazy loading handled internally
-  version = 'v0.*',
+  version = 'v1.*',
   opts = {
     completion = {
       trigger = {
@@ -30,11 +29,47 @@ return {
         'path',
         'snippets',
         'buffer',
+        'avante_mentions',
+        'avante_commands',
+        'avante_shortcuts',
+        'avante_files',
+      },
+      providers = {
+        path = {
+          enabled = function()
+            return vim.bo.filetype ~= 'AvanteInput'
+          end,
+        },
+        avante_mentions = {
+          name = 'avante_mentions',
+          module = 'blink.compat.source',
+          score_offset = 100, -- show at a higher priority than lsp
+          opts = {},
+        },
+        avante_commands = {
+          name = 'avante_commands',
+          module = 'blink.compat.source',
+          score_offset = 100, -- show at a higher priority than lsp
+          opts = {},
+        },
+        avante_shortcuts = {
+          name = 'avante_shortcuts',
+          module = 'blink.compat.source',
+          score_offset = 100, -- show at a higher priority than lsp
+          opts = {},
+        },
+        avante_files = {
+          name = 'avante_files',
+          module = 'blink.compat.source',
+          score_offset = 100, -- show at a higher priority than lsp
+          opts = {},
+        },
       },
     },
 
     fuzzy = {
       sorts = { 'score', 'kind', 'label' },
+      implementation = 'prefer_rust_with_warning',
     },
 
     keymap = {

@@ -122,23 +122,23 @@ end, { nargs = '*', range = true })
 local modes = { 'n', 'v' }
 
 return {
-  { modes, '<leader>aa', '<cmd>CopilotChatToggle<cr>', { desc = 'CopilotChat: Open chat' } },
-  { modes, '<leader>ac', '<cmd>CopilotChatCommit<cr>', { desc = 'CopilotChat: Commit' } },
-  { modes, '<leader>aC', '<cmd>CopilotChatCommitStaged<cr>', { desc = 'CopilotChat: CommitStaged' } },
-  { modes, '<leader>ar', '<cmd>CopilotChatReview<cr>', { desc = 'CopilotChat: Review' } },
-  { modes, '<leader>af', '<cmd>CopilotChatFix<cr>', { desc = 'CopilotChat: Fix' } },
-  { modes, '<leader>aF', '<cmd>CopilotChatFixDiagnostic<cr>', { desc = 'CopilotChat: FixDiagnostic' } },
-  { modes, '<leader>ao', '<cmd>CopilotChatOptimize<cr>', { desc = 'CopilotChat: Optimize' } },
-  { modes, '<leader>ad', '<cmd>CopilotChatDocs<cr>', { desc = 'CopilotChat: Docs' } },
-  { modes, '<leader>at', '<cmd>CopilotChatTests<cr>', { desc = 'CopilotChat: Tests' } },
-  { modes, '<leader>ae', '<cmd>CopilotChatExplain<cr>', { desc = 'CopilotChat: Explain' } },
-  { modes, '<leader>aE', '<cmd>CopilotChatExplainAdvanced<cr>', { desc = 'CopilotChat: Advanced Explain' } },
-  { modes, '<leader>aR', '<cmd>CopilotChatRefactor<cr>', { desc = 'CopilotChat: Refactor' } },
-  { modes, '<leader>al', '<cmd>CopilotChatReadable<cr>', { desc = 'CopilotChat: Readable' } },
-  { modes, '<leader>ai', '<cmd>CopilotChatImplement<cr>', { desc = 'CopilotChat: Implement' } },
-  { modes, '<leader>aI', '<cmd>CopilotChatImplementInline<cr>', { desc = 'CopilotChat: Implement inline' } },
-
-  { modes, '<leader>aT', '<cmd>CopilotChatLeetTest<cr>', { desc = 'CopilotChat: Implement leet code test' } },
+  -- { modes, '<leader>aa', '<cmd>CopilotChatToggle<cr>', { desc = 'CopilotChat: Open chat' } },
+  -- { modes, '<leader>ac', '<cmd>CopilotChatCommit<cr>', { desc = 'CopilotChat: Commit' } },
+  -- { modes, '<leader>aC', '<cmd>CopilotChatCommitStaged<cr>', { desc = 'CopilotChat: CommitStaged' } },
+  -- { modes, '<leader>ar', '<cmd>CopilotChatReview<cr>', { desc = 'CopilotChat: Review' } },
+  -- { modes, '<leader>af', '<cmd>CopilotChatFix<cr>', { desc = 'CopilotChat: Fix' } },
+  -- { modes, '<leader>aF', '<cmd>CopilotChatFixDiagnostic<cr>', { desc = 'CopilotChat: FixDiagnostic' } },
+  -- { modes, '<leader>ao', '<cmd>CopilotChatOptimize<cr>', { desc = 'CopilotChat: Optimize' } },
+  -- { modes, '<leader>ad', '<cmd>CopilotChatDocs<cr>', { desc = 'CopilotChat: Docs' } },
+  -- { modes, '<leader>at', '<cmd>CopilotChatTests<cr>', { desc = 'CopilotChat: Tests' } },
+  -- { modes, '<leader>ae', '<cmd>CopilotChatExplain<cr>', { desc = 'CopilotChat: Explain' } },
+  -- { modes, '<leader>aE', '<cmd>CopilotChatExplainAdvanced<cr>', { desc = 'CopilotChat: Advanced Explain' } },
+  -- { modes, '<leader>aR', '<cmd>CopilotChatRefactor<cr>', { desc = 'CopilotChat: Refactor' } },
+  -- { modes, '<leader>al', '<cmd>CopilotChatReadable<cr>', { desc = 'CopilotChat: Readable' } },
+  -- { modes, '<leader>ai', '<cmd>CopilotChatImplement<cr>', { desc = 'CopilotChat: Implement' } },
+  -- { modes, '<leader>aI', '<cmd>CopilotChatImplementInline<cr>', { desc = 'CopilotChat: Implement inline' } },
+  --
+  -- { modes, '<leader>aT', '<cmd>CopilotChatLeetTest<cr>', { desc = 'CopilotChat: Implement leet code test' } },
 }
 
 -- for _, keymap in ipairs(mappings) do
