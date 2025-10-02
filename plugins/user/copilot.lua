@@ -10,6 +10,9 @@ return {
         auto_trigger = true,
         accept = '<M-l>',
       },
+      filetypes = {
+        ['*'] = true,
+      },
     }
   end,
 }
