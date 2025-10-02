@@ -34,7 +34,7 @@ wk.add {
 }
 
 set_keymaps(require 'keymaps.cargo')
-set_keymaps(require 'keymaps.copilot')
+set_keymaps(require 'keymaps.copilot-chat')
 set_keymaps(require 'keymaps.dial')
 set_keymaps(require 'keymaps.git')
 set_keymaps(require 'keymaps.harpoon')
