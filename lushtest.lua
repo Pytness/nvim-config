@@ -3,7 +3,7 @@ local hsl = lush.hsl
 
 local red = hsl(350, 80, 65)
 local orange = hsl(39, 80, 65)
-local yellow = hsl(60, 80, 65)
+local yellow = hsl(65, 80, 65)
 local green = hsl(120, 80, 65)
 local cyan = hsl(180, 80, 65)
 local blue = hsl(220, 80, 65)
@@ -167,10 +167,10 @@ local theme = lush(function(injected_functions)
     CursorColumn { bg = cursor_grey }, -- the screen column when 'cursorcolumn' is set
     CursorLine { bg = cursor_grey }, -- the screen line when 'cursorline' is set
     Directory { fg = blue }, -- directory names
-    DiffAdd { bg = green }, -- diff mode: Added line
-    DiffChange { bg = blue }, -- diff mode: Changed line
-    DiffDelete { bg = red }, -- diff mode: Deleted line
-    DiffText { bg = yellow }, -- diff mode: Changed text within a changed line
+    DiffAdd { bg = background_green }, -- diff mode: Added line
+    DiffChange { bg = background_blue }, -- diff mode: Changed line
+    DiffDelete { bg = background_red, fg = background_red }, -- diff mode: Deleted line
+    DiffText { bg = background_yellow }, -- diff mode: Changed text within a changed line
     ErrorMsg { fg = red }, -- error messages on the command line
     VertSplit { fg = vertsplit }, -- the column separating vertically split windows
     Folded { bg = cursor_grey, fg = comment_grey }, -- line used for closed folds
