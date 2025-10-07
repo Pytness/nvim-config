@@ -2,13 +2,29 @@ local lush = require 'lush'
 local hsl = lush.hsl
 
 local red = hsl(350, 80, 65)
-local green = hsl(120, 80, 65)
-local yellow = hsl(65, 80, 65)
 local orange = hsl(39, 80, 65)
+local yellow = hsl(60, 80, 65)
+local green = hsl(120, 80, 65)
+local cyan = hsl(180, 80, 65)
 local blue = hsl(220, 80, 65)
 local purple = hsl(300, 80, 65)
-local cyan = hsl(180, 80, 65)
 local blue_purple = blue.mix(purple, 50)
+
+local white = blue.lightness(88).saturation(20)
+local black = blue.lightness(12).saturation(17)
+
+local full_white = hsl(0, 0, 100)
+local full_black = hsl(0, 0, 0)
+
+local background_percent = 30
+local background = black
+local background_red = background.mix(red, background_percent)
+local background_green = background.mix(green, background_percent)
+local background_yellow = background.mix(yellow, background_percent)
+local background_orange = background.mix(orange, background_percent)
+local background_blue = background.mix(blue, background_percent)
+local background_purple = background.mix(purple, background_percent)
+local background_cyan = background.mix(cyan, background_percent)
 
 -- red = hsl(349, 100, 66)
 -- orange = hsl(30, 100, 70)
@@ -33,9 +49,6 @@ local light_orange = orange.lighten(30).saturation(100)
 local light_blue = blue.lighten(30).saturation(100)
 local light_purple = purple.lighten(30).saturation(100)
 local light_cyan = cyan.lighten(30).saturation(100)
-
-local white = blue.lightness(88).saturation(20)
-local black = blue.lightness(9).saturation(15)
 
 local comment_grey = black.lighten(40).saturation(10)
 local inlay_hint = black.lighten(30)
@@ -87,6 +100,14 @@ local theme = lush(function(injected_functions)
     Cyan { fg = cyan },
     Light_cyan { fg = light_cyan },
 
+    BackgroundRed { bg = background_red },
+    BackgroundGreen { bg = background_green },
+    BackgroundYellow { bg = background_yellow },
+    BackgroundOrange { bg = background_orange },
+    BackgroundBlue { bg = background_blue },
+    BackgroundPurple { bg = background_purple },
+    BackgroundCyan { bg = background_cyan },
+
     Blue_purple { fg = blue_purple },
 
     White { fg = white },
@@ -112,7 +133,7 @@ local theme = lush(function(injected_functions)
     Boolean { fg = red }, -- a boolean constant: TRUE, false
     Float { fg = dark_yellow }, -- a floating point constant: 2.3e10
     Identifier { fg = red }, -- any variable name
-    Function { fg = blue }, -- function name (also: methods for classes)
+    Function { fg = light_blue }, -- function name (also: methods for classes)
     Statement { fg = purple }, -- any statement
     Conditional { fg = purple }, -- if, then, else, endif, switch, etc.
     Repeat { fg = purple }, -- for, do, while, etc.
@@ -249,11 +270,11 @@ local theme = lush(function(injected_functions)
 
     MiniTablineHidden { bg = cursor_grey, fg = white },
     MiniTablineVisible { bg = cursor_grey, fg = white },
-    MiniTablineCurrent { bg = blue, fg = white },
+    MiniTablineCurrent { bg = blue, fg = full_white },
 
     MiniTablineModifiedHidden { bg = cursor_grey, fg = green },
     MiniTablineModifiedVisible { bg = cursor_grey, fg = green },
-    MiniTablineModifiedCurrent { bg = green, fg = black },
+    MiniTablineModifiedCurrent { bg = green, fg = full_black },
 
     MiniStatuslineModeNormal { bg = blue, fg = black },
     MiniStatuslineModeInsert { bg = yellow, fg = black },
@@ -270,14 +291,14 @@ local theme = lush(function(injected_functions)
     sym '@character' { fg = green },
     sym '@character.special' { fg = dark_purple },
     sym '@constant' { fg = cyan },
-    sym '@constant.builtin' { fg = yellow },
-    sym '@constant.macro' { fg = dark_yellow },
-    sym '@function' { fg = blue },
+    sym '@constant.builtin' { fg = orange },
+    sym '@constant.macro' { fg = orange },
+    sym '@function' { fg = light_blue },
     sym '@function.builtin' { fg = cyan },
-    sym '@function.call' { fg = blue },
+    sym '@function.call' { fg = light_blue },
     sym '@function.macro' { fg = purple, italic = true },
     sym '@keyword' { fg = red, italic = true },
-    sym '@keyword.function' { fg = dark_purple, italic = true },
+    sym '@keyword.function' { fg = light_red, italic = true },
     sym '@keyword.operator' { fg = dark_purple },
     sym '@keyword.return' { fg = red },
     sym '@method' { fg = blue },
@@ -290,16 +311,16 @@ local theme = lush(function(injected_functions)
     sym '@punctuation.bracket' { fg = white },
     sym '@punctuation.delimiter' { fg = white },
     sym '@punctuation.special' { fg = white },
-    sym '@string' { fg = green },
+    sym '@string' { fg = light_green },
     sym '@string.escape' { fg = comment_grey },
     sym '@string.regex' { fg = dark_green },
     sym '@string.special' { fg = yellow },
     sym '@tag' { fg = light_red },
     sym '@tag.attribute' { fg = dark_purple },
     sym '@tag.delimiter' { fg = white },
-    sym '@type' { fg = yellow },
-    sym '@type.builtin' { fg = yellow },
-    sym '@type.qualifier' { fg = yellow },
+    sym '@type' { fg = light_orange },
+    sym '@type.builtin' { fg = dark_orange },
+    sym '@type.qualifier' { fg = orange },
     sym '@variable' { fg = white },
     sym '@variable.builtin' { fg = dark_yellow },
   }
