@@ -28,6 +28,18 @@ local function force_refresh()
   }
 end
 
+local function open_current_buffer()
+  local current_buffer_path = vim.api.nvim_buf_get_name(0)
+
+  if current_buffer_path == '' then
+    print 'Current buffer has no name'
+    return
+  end
+
+  files.open(current_buffer_path, false)
+end
+files.open_current_buffer = open_current_buffer
+
 local show_dotfiles = true
 local show_gitignored = true
 
