@@ -5,6 +5,54 @@ function remote_action()
   require('leap.remote').action()
 end
 
+local function leap_ft(key_specific_args)
+  local operation_pending = vim.fn.mode(1):match '[no]'
+  local common_args = {
+    inputlen = 1,
+    inclusive = true,
+
+    opts = {
+      labels = '',
+      safe_labels = operation_pending and '' or nil,
+      case_sensitive = false,
+    },
+  }
+
+  return vim.tbl_deep_extend('keep', common_args, key_specific_args or {})
+end
+
+local clever = require('leap.user').with_traversal_keys
+local clever_f = clever('f', 'F')
+local clever_t = clever('t', 'T')
+
+local function leap_f()
+  require('leap').leap(leap_ft {
+    opts = clever_f,
+  })
+end
+
+local function leap_F()
+  require('leap').leap(leap_ft {
+    opts = clever_t,
+    backward = true,
+  })
+end
+
+local function leap_t()
+  require('leap').leap(leap_ft {
+    opts = clever_t,
+    offset = -1,
+  })
+end
+
+local function leap_T()
+  require('leap').leap(leap_ft {
+    opts = clever_t,
+    backward = true,
+    offset = 1,
+  })
+end
+
 return {
   { 'i', 'jj', '<ESC>j', { silent = true } },
   { 'i', 'kk', '<ESC>k', { silent = true } },
@@ -28,9 +76,15 @@ return {
   -- Stay in Visual when indenting
   { 'v', '>', '>gv' },
   { 'v', '<', '<gv' },
+
   -- Leap
-  { 'n', 's', '<Plug>(leap)' },
+  { { 'n', 'x', 'o' }, 's', '<Plug>(leap)', { noremap = true } },
   { { 'n', 'x', 'o' }, 'gs', remote_action, { desc = 'Remote action' } },
+
+  { { 'n', 'x', 'o' }, 'f', leap_f, { noremap = true } },
+  { { 'n', 'x', 'o' }, 'F', leap_F, { noremap = true } },
+  { { 'n', 'x', 'o' }, 't', leap_t, { noremap = true } },
+  { { 'n', 'x', 'o' }, 'T', leap_T, { noremap = true } },
 
   { { 'n', 'v' }, '[h', ':Gitsigns prev_hunk<CR>', { desc = 'Prev git hunk', noremap = true } },
   { { 'n', 'v' }, ']h', ':Gitsigns next_hunk<CR>', { desc = 'Next git hunk', noremap = true } },
