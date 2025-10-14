@@ -3,6 +3,13 @@ return {
   settings = {
     Lua = {
       runtime = { version = 'LuaJIT' },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {
+          'vim',
+          'require',
+        },
+      },
       workspace = {
         checkThirdParty = false,
         -- Tells lua_ls where to find all the Lua files that you have loaded
