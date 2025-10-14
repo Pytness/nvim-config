@@ -3,4 +3,5 @@ return {
   'rhysd/git-messenger.vim',
   cmd = 'GitMessenger',
   opts = {},
+  config = function() end,
 }
