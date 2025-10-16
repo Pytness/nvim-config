@@ -1,37 +1,63 @@
+local ensure_installed = { 'bash', 'c', 'html', 'jsonc', 'lua', 'markdown', 'vim', 'vimdoc' }
+
+local function is_parser_available(parser)
+  local available = require('nvim-treesitter').get_available()
+
+  for _, lang in ipairs(available) do
+    if lang == parser then
+      return true
+    end
+  end
+
+  return false
+end
+
+--- @async
+--- Install the parser for the given filetype if it's not already installed
+---
+--- @param filetype string | nil
+local function install_missing_language(language)
+  if not is_parser_available(language) then
+    return nil
+  end
+
+  return require('nvim-treesitter').install(language)
+end
+
 -- Highlight, edit, and navigate code
 return {
   'nvim-treesitter/nvim-treesitter',
+  branch = 'main', -- Master branch is deprecated
   build = ':TSUpdate',
+  lazy = false,
+  opts = {
+    install_dir = vim.fn.stdpath 'data' .. '/site',
+  },
   config = function()
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-
-    ---@diagnostic disable-next-line: missing-fields
-    require('nvim-treesitter.configs').setup {
-      ensure_installed = { 'bash', 'c', 'html', 'jsonc', 'lua', 'markdown', 'vim', 'vimdoc' },
-      -- Autoinstall languages that are not installed
-      --
-      auto_install = true,
-      highlight = { enable = true },
-      indent = { enable = true },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = 'gnn', -- set to `false` to disable one of the mappings
-          node_incremental = 'grn',
-          scope_incremental = 'grc',
-          node_decremental = 'grm',
-        },
-      },
-    }
+    require('nvim-treesitter').install { ensure_installed }
 
     -- Make nvim stfu about dock- wah wah wah
     vim.treesitter.language.register('dockerfile', 'Dockerfile')
 
-    -- There are additional nvim-treesitter modules that you can use to interact
-    -- with nvim-treesitter. You should go explore a few and see what interests you:
-    --
-    --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-    --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-    --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = { '*' },
+      callback = function(context)
+        local bufnr = context.buf
+        local filetype = context.match
+        local language = vim.treesitter.language.get_lang(filetype)
+
+        local task = install_missing_language(language)
+
+        if task == nil then
+          return
+        end
+
+        task:await(function()
+          if vim.treesitter.language.add(language) then
+            vim.treesitter.start(bufnr, language)
+          end
+        end)
+      end,
+    })
   end,
 }
