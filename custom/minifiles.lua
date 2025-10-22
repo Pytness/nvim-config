@@ -1,6 +1,10 @@
 local files = require 'mini.files'
 local utils = require 'utils'
 
+local show_dotfiles = true
+local show_gitignored = true
+local preview_enabled = false
+
 local function is_open()
   return files.get_explorer_state() ~= nil
 end
@@ -25,6 +29,9 @@ local function force_refresh()
     content = {
       force_update = true,
     },
+    windows = {
+      preview = preview_enabled,
+    },
   }
 end
 
@@ -39,9 +46,6 @@ local function open_current_buffer()
   files.open(current_buffer_path, false)
 end
 files.open_current_buffer = open_current_buffer
-
-local show_dotfiles = true
-local show_gitignored = true
 
 local is_dotfile = function(fs_entry)
   return vim.startswith(fs_entry.name, '.')
@@ -75,6 +79,11 @@ end
 
 local function toggle_show_gitignored()
   show_gitignored = not show_gitignored
+  force_refresh()
+end
+
+local function toggle_preview()
+  preview_enabled = not preview_enabled
   force_refresh()
 end
 
@@ -144,6 +153,7 @@ local key_mappings = {
   { 'n', 't', set_parent_as_cwd, 'Target parent as cwd' },
   { 'n', '[', set_parent_as_cwd, 'Target parent as cwd' },
   { 'n', ']', set_target_as_cwd, 'Target as cwd' },
+  { 'n', '\\', toggle_preview, 'Preview file' },
 }
 
 local function buffer_make_mappings(buffer_id, mappings)
