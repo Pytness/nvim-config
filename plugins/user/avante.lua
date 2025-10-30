@@ -21,6 +21,7 @@ return {
         model = 'gpt-4.1',
         extra_request_body = {},
         auto_select_model = false,
+        use_response_api = true,
       },
     },
     behaviour = {
