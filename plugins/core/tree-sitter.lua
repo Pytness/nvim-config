@@ -15,7 +15,7 @@ end
 --- @async
 --- Install the parser for the given filetype if it's not already installed
 ---
---- @param filetype string | nil
+--- @param language string | nil
 local function install_missing_language(language)
   if not is_parser_available(language) then
     return nil
@@ -43,6 +43,7 @@ return {
       pattern = { '*' },
       callback = function(context)
         local bufnr = context.buf
+
         local filetype = context.match
         local language = vim.treesitter.language.get_lang(filetype)
 
@@ -55,6 +56,12 @@ return {
         task:await(function()
           if vim.treesitter.language.add(language) then
             vim.treesitter.start(bufnr, language)
+
+            local winid = vim.fn.bufwinid(bufnr)
+
+            vim.wo[winid].foldmethod = 'expr'
+            vim.wo[winid].foldexpr = 'v:lua.vim.treesitter.foldexpr()' -- Use treesitter for folds
+            vim.bo[bufnr].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
           end
         end)
       end,
