@@ -1,5 +1,3 @@
-local colors = require 'theme.colors'
-
 return {
   'svampkorg/moody.nvim',
   event = { 'ModeChanged', 'BufWinEnter', 'WinEnter' },
@@ -20,21 +18,6 @@ return {
       select = 0.2,
       terminal = 0.2,
       terminal_n = 0.2,
-    },
-    -- there are two ways to define colours for the different modes.
-    -- one way is to define theme here in colors. Another way is to
-    -- set them up with highlight groups. Any highlight group set takes
-    -- precedence over any colours defined here.
-    colors = {
-      normal = colors.blue,
-      insert = colors.white,
-      visual = colors.purple,
-      replace = colors.green,
-      -- command = '#EB788B',
-      -- operator = '#FF8F40',
-      -- select = '#AD6FF7',
-      -- terminal = '#4CD4BD',
-      -- terminal_n = '#00BBCC',
     },
     -- disable filetypes here. Add for example "TelescopePrompt" to
     -- not have any coloured cursorline for the telescope prompt.

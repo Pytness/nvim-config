@@ -60,17 +60,26 @@ M.is_wsl = function()
   return vim.fn.has 'wsl' == 1
 end
 
---- Set keymaps in Neovim
+--- Set buffer-local keymaps in Neovim
+--- @param bufnr number
 --- @param mappings table<string | table, string, string | function, table?>[]
-M.set_keymaps = function(mappings)
+M.set_buf_keymaps = function(bufnr, mappings)
   for _, keymap in ipairs(mappings) do
     local mode = keymap[1]
     local key = keymap[2]
     local action = keymap[3]
     local options = keymap[4] or {}
 
+    options.buffer = bufnr
+
     vim.keymap.set(mode, key, action, options)
   end
+end
+
+--- Set keymaps in Neovim
+--- @param mappings table<string | table, string, string | function, table?>[]
+M.set_keymaps = function(mappings)
+  M.set_buf_keymaps(nil, mappings)
 end
 
 M.close_hover = function()

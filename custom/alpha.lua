@@ -9,8 +9,8 @@ dashboard.section.header.val = {
 }
 
 dashboard.section.buttons.val = {
-  button('e', '  New File', ':ene <BAR> startinsert<CR>'),
-  button('q', '󰅚  Quit', ':qa<CR>'),
+  button('e', '  New File', '<CMD>ene <BAR> startinsert<CR>'),
+  button('q', '󰅚  Quit', '<CMD>qa<CR>'),
 }
 
 local function footer()

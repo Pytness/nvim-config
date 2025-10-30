@@ -5,7 +5,7 @@ return {
   opts = {
     width = 60,
     height = 10,
-    title = ' Bafa',
+    title = ' Buffers (%count) ',
     title_pos = 'center',
     relative = 'editor',
     border = 'rounded',
@@ -29,6 +29,6 @@ return {
       'U',
     },
     -- last_used, name, number
-    sorting_algorithm = 'last_used',
+    sorting_algorithm = 'number',
   },
 }
