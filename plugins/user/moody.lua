@@ -1,4 +1,4 @@
-local colors = require 'theme.colors'
+local colors = require 'palenight.colors'
 
 return {
   'svampkorg/moody.nvim',
