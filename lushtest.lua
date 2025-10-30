@@ -1,6 +1,32 @@
 local lush = require 'lush'
 local hsl = lush.hsl
 
+--- Transform an HSL color to RGB.
+---
+--- @param color table A color in HSL format, with fields `h`, `s`, and `l`.
+--- @return table A color in RGB format, with fields `r`, `g`, and `b`.
+local function hsl_to_rgb(color)
+  local hex = color.hex
+  local r = tonumber(hex:sub(2, 3), 16)
+  local g = tonumber(hex:sub(4, 5), 16)
+  local b = tonumber(hex:sub(6, 7), 16)
+
+  return { r = r, g = g, b = b }
+end
+
+local function blend(bg, fg, alpha)
+  local bg_rgb = hsl_to_rgb(bg)
+  local fg_rgb = hsl_to_rgb(fg)
+
+  local r = math.floor(bg_rgb.r * (1 - alpha) + fg_rgb.r * alpha + 0.5)
+  local g = math.floor(bg_rgb.g * (1 - alpha) + fg_rgb.g * alpha + 0.5)
+  local b = math.floor(bg_rgb.b * (1 - alpha) + fg_rgb.b * alpha + 0.5)
+
+  local hex = string.format('#%02x%02x%02x', r, g, b)
+
+  return hsl(hex)
+end
+
 local red = hsl(350, 80, 65)
 local orange = hsl(39, 80, 65)
 local yellow = hsl(65, 80, 65)
@@ -16,17 +42,7 @@ local black = blue.lightness(12).saturation(17)
 local full_white = hsl(0, 0, 100)
 local full_black = hsl(0, 0, 0)
 
-local background_percent = 30
-local background = black
-local background_red = background.mix(red, background_percent)
-local background_green = background.mix(green, background_percent)
-local background_yellow = background.mix(yellow, background_percent)
-local background_orange = background.mix(orange, background_percent)
-local background_blue = background.mix(blue, background_percent)
-local background_purple = background.mix(purple, background_percent)
-local background_cyan = background.mix(cyan, background_percent)
-
--- red = hsl(349, 100, 66)
+-- red = hsl(349, 100, 67)
 -- orange = hsl(30, 100, 70)
 -- yellow = hsl(60, 100, 70)
 -- green = hsl(90, 66, 73)
@@ -50,7 +66,7 @@ local light_blue = blue.lighten(30).saturation(100)
 local light_purple = purple.lighten(30).saturation(100)
 local light_cyan = cyan.lighten(30).saturation(100)
 
-local comment_grey = black.lighten(40).saturation(10)
+local comment_grey = black.lighten(43).saturation(10)
 local inlay_hint = black.lighten(30)
 
 local grey = black.lighten(20)
@@ -65,6 +81,16 @@ local vertsplit = grey
 
 local leap_primary_label = hsl(335, 100, 59)
 local leap_secondary_label = leap_primary_label.rotate(220)
+
+local background = black
+
+local background_red = blend(background, red, 0.20)
+local background_green = blend(background, green, 0.20)
+local background_yellow = blend(background, yellow, 0.50)
+local background_orange = blend(background, orange, 0.20)
+local background_blue = blend(background, blue, 0.20)
+local background_purple = blend(background, purple, 0.20)
+local background_cyan = blend(background, cyan, 0.20)
 
 ---@diagnostic disable: undefined-global
 local theme = lush(function(injected_functions)
@@ -150,7 +176,7 @@ local theme = lush(function(injected_functions)
     StorageClass { fg = yellow }, -- static, register, volatile, etc.
     Structure { fg = yellow }, -- struct, union, enum, etc.
     Typedef { fg = yellow }, -- A typedef
-    Special { fg = blue }, -- any special symbol
+    Special { fg = light_blue }, -- any special symbol
     SpecialChar {}, -- special character in a constant
     Tag {}, -- you can use CTRL-] on this
     Delimiter {}, -- character that needs attention
@@ -292,7 +318,7 @@ local theme = lush(function(injected_functions)
     sym '@character.special' { fg = dark_purple },
     sym '@constant' { fg = cyan },
     sym '@constant.builtin' { fg = orange },
-    sym '@constant.macro' { fg = orange },
+    sym '@constant.macro' { fg = dark_orange },
     sym '@function' { fg = light_blue },
     sym '@function.builtin' { fg = cyan },
     sym '@function.call' { fg = light_blue },
