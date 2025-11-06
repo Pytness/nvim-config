@@ -84,13 +84,13 @@ local leap_secondary_label = leap_primary_label.rotate(220)
 
 local background = black
 
-local background_red = blend(background, red, 0.20)
-local background_green = blend(background, green, 0.20)
-local background_yellow = blend(background, yellow, 0.50)
-local background_orange = blend(background, orange, 0.20)
-local background_blue = blend(background, blue, 0.20)
-local background_purple = blend(background, purple, 0.20)
-local background_cyan = blend(background, cyan, 0.20)
+local background_red = blend(background, red, 0.50).saturation(50)
+local background_green = blend(background, green, 0.50).saturation(50)
+local background_yellow = blend(background, yellow, 0.50).saturation(80)
+local background_orange = blend(background, orange, 0.20).saturation(100)
+local background_blue = blend(background, light_blue, 0.20).saturation(80)
+local background_purple = blend(background, purple, 0.50).saturation(50)
+local background_cyan = blend(background, cyan, 0.50).saturation(50)
 
 ---@diagnostic disable: undefined-global
 local theme = lush(function(injected_functions)
@@ -155,7 +155,7 @@ local theme = lush(function(injected_functions)
     Constant { fg = cyan }, -- any constant
     String { fg = green }, -- a string constant: "this is a string"
     Character { fg = green }, -- a character constant: 'c', '\n'
-    Number { fg = dark_yellow }, -- a number constant: 234, 0xff
+    Number { fg = orange }, -- a number constant: 234, 0xff
     Boolean { fg = red }, -- a boolean constant: TRUE, false
     Float { fg = dark_yellow }, -- a floating point constant: 2.3e10
     Identifier { fg = red }, -- any variable name
@@ -324,7 +324,7 @@ local theme = lush(function(injected_functions)
     sym '@function.call' { fg = light_blue },
     sym '@function.macro' { fg = purple, italic = true },
     sym '@keyword' { fg = red, italic = true },
-    sym '@keyword.function' { fg = light_red, italic = true },
+    sym '@keyword.function' { fg = red, italic = true },
     sym '@keyword.operator' { fg = dark_purple },
     sym '@keyword.return' { fg = red },
     sym '@method' { fg = blue },
