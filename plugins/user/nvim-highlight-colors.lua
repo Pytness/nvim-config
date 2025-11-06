@@ -26,7 +26,7 @@ return {
     enable_hex = true,
 
     ---Highlight short hex colors e.g. '#fff'
-    enable_short_hex = true,
+    enable_short_hex = false,
 
     ---Highlight rgb colors, e.g. 'rgb(0 0 0)'
     enable_rgb = true,
@@ -38,7 +38,7 @@ return {
     enable_ansi = true,
 
     -- Highlight hsl colors without function, e.g. '--foreground: 0 69% 69%;'
-    enable_hsl_without_function = true,
+    enable_hsl_without_function = false,
 
     ---Highlight CSS variables, e.g. 'var(--testing-color)'
     enable_var_usage = true,

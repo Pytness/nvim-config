@@ -1,6 +1,7 @@
 return {
   'svampkorg/moody.nvim',
   event = { 'ModeChanged', 'BufWinEnter', 'WinEnter' },
+  enabled = false,
   dependencies = {
     'kevinhwang91/nvim-ufo',
   },
