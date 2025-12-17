@@ -59,6 +59,10 @@ return {
 
             local winid = vim.fn.bufwinid(bufnr)
 
+            if winid == -1 then
+              return
+            end
+
             vim.wo[winid].foldmethod = 'expr'
             vim.wo[winid].foldexpr = 'v:lua.vim.treesitter.foldexpr()' -- Use treesitter for folds
             vim.bo[bufnr].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
