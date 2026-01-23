@@ -1,8 +1,7 @@
 local function quit()
   vim.cmd 'silent q'
 end
-
-local function remote_action()
+function remote_action()
   require('leap.remote').action()
 end
 
@@ -13,7 +12,7 @@ local function leap_ft(key_specific_args)
     inclusive = true,
 
     opts = {
-      labels = 'asdfghjkl;qwertyoiup',
+      labels = '',
       safe_labels = operation_pending and '' or nil,
       case_sensitive = false,
     },
