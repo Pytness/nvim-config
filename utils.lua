@@ -61,7 +61,7 @@ M.is_wsl = function()
 end
 
 --- Set buffer-local keymaps in Neovim
---- @param bufnr number
+--- @param bufnr number | nil
 --- @param mappings table<string | table, string, string | function, table?>[]
 M.set_buf_keymaps = function(bufnr, mappings)
   for _, keymap in ipairs(mappings) do
