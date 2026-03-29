@@ -13,3 +13,5 @@ require 'lazy-loader'
 require 'keymaps'
 require 'commands'
 vim.cmd 'colorscheme palenight'
+
+vim.cmd 'packadd nvim.undotree'
