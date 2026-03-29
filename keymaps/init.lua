@@ -33,6 +33,13 @@ wk.add {
   { '<leader>z', group = '[Z]en mode' },
 }
 
+vim.keymap.set({ 'i', 's', 'n', 'x', 'o' }, '<esc>', function()
+  if vim.snippet.active() then
+    vim.snippet.stop()
+  end
+  return '<esc>'
+end, { expr = true })
+
 set_keymaps(require 'keymaps.cargo')
 set_keymaps(require 'keymaps.copilot-chat')
 set_keymaps(require 'keymaps.dial')
