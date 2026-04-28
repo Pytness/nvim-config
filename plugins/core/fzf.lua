@@ -22,4 +22,8 @@ return {
       },
     },
   },
+
+  config = function(_, opts)
+    require('fzf-lua').register_ui_select(opts)
+  end,
 }
