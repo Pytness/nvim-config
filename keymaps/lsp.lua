@@ -6,11 +6,11 @@ local function toggle_hints()
 end
 
 local function next_diagnostic()
-  vim.diagnostic.jump { count = -1, float = true }
+  vim.diagnostic.jump { count = -1, on_jump = vim.diagnostic.open_float }
 end
 
 local function prev_diagnostic()
-  vim.diagnostic.jump { count = 1, float = true }
+  vim.diagnostic.jump { count = 1, on_jump = vim.diagnostic.open_float }
 end
 
 --- Hover using 'BufLeave' to handle jumping to the definition
