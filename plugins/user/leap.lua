@@ -3,6 +3,10 @@ return {
   'https://codeberg.org/andyg/leap.nvim',
 
   opts = {
+    -- By default, the equivalence classes include:
+    -- { ' \t\r\n', '([{', ')]}', '\'"`' }
+    -- Im only interested in whitespace.
+    equivalence_classes = { '\t\r\n' },
     safe_labels = '', -- Disable the default labels so keypresses are always 3
     labels = 'asdfghjkl;qwertyoiup',
   },
