@@ -5,6 +5,7 @@ package.path = nvim_dir .. '?.lua;' .. package.path
 package.path = nvim_dir .. '?/?.lua;' .. package.path
 package.path = nvim_dir .. '?/init.lua;' .. package.path
 
+require 'custom.keymap_stats'
 require 'libs'
 require 'options'
 require 'autocmd'
