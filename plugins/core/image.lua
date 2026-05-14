@@ -1,8 +1,7 @@
 return {
   '3rd/image.nvim',
-  -- enabled = false,
   opts = {
-    backend = 'kitty',
+    backend = 'sixel',
     processor = 'magick_cli', -- or "magick_cli"
     integrations = {
       markdown = {
