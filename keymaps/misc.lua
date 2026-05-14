@@ -141,4 +141,6 @@ return {
   { 'n', '<leader>mm', '<cmd>MarkdownPreviewToggle<cr>', { desc = 'Toggle markdown preview' } },
   { 'v', '<leader>me', eval_selection, { desc = 'Eval selection using bc' } },
   { { 'n', 'v' }, '<leader>mc', eval_input, { desc = 'Open calc with input' } },
+
+  { 'n', '<leader>U', ':UndotreeToggle<CR>', { noremap = true, silent = true } },
 }
