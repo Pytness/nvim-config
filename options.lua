@@ -63,3 +63,5 @@ vim.opt.hlsearch = true
 
 -- Set floating windows border to rounded
 vim.opt.winborder = 'rounded'
+
+vim.opt.conceallevel = 2
