@@ -13,7 +13,8 @@ local function project_oldfiles()
 end
 
 local function search_todo()
-  local todo_keywords = '(FIX|BUG|ISSUE|TODO|HACK|WARN|WARNING|XXX|NOTE|INFO|PERF|OPTIM|PERFORMANCE|OPTIMIZE|TEST)(.*){,16}:'
+  local words = '(FIX|BUG|ISSUE|TODO|HACK|WARN|WARNING|XXX|NOTE|INFO|PERF|OPTIM|PERFORMANCE|OPTIMIZE|TEST)'
+  local todo_keywords = words .. ':'
   local fzf = require 'fzf-lua'
 
   fzf.grep {
