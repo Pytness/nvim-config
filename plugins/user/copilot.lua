@@ -8,7 +8,7 @@ return {
       copilot_model = 'gpt-41-copilot',
       suggestion = {
         auto_trigger = true,
-        accept = '<M-l>',
+        accept = false,
       },
       filetypes = {
         ['*'] = true,

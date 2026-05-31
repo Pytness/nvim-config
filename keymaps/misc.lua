@@ -133,6 +133,11 @@ local function eval_input()
   end
 end
 
+local function copilot_accept()
+  local suggestion = require 'copilot.suggestion'
+  suggestion.accept()
+end
+
 return {
   { 'n', 'ygG', 'ggVGy', { desc = 'Yank whole buffer' } },
   { { 'n', 'v' }, 'gS', google_search, { desc = 'Search on google' } },
@@ -143,4 +148,6 @@ return {
   { { 'n', 'v' }, '<leader>mc', eval_input, { desc = 'Open calc with input' } },
 
   { 'n', '<leader>U', ':UndotreeToggle<CR>', { noremap = true, silent = true } },
+
+  { 'i', '<M-l>', copilot_accept, { noremap = true, silent = true } },
 }
