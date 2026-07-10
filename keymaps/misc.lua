@@ -150,4 +150,6 @@ return {
   { 'n', '<leader>U', ':UndotreeToggle<CR>', { noremap = true, silent = true } },
 
   { 'i', '<M-l>', copilot_accept, { noremap = true, silent = true } },
+  -- Exit term mode
+  { 't', '<esc><esc>', '<C-\\><C-n>', { silent = true } },
 }
