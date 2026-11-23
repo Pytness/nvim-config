@@ -30,46 +30,13 @@ return {
         'path',
         'snippets',
         'buffer',
-        'avante_mentions',
-        'avante_commands',
-        'avante_shortcuts',
-        'avante_files',
       },
       providers = {
-        path = {
-          enabled = function()
-            return vim.bo.filetype ~= 'AvanteInput'
-          end,
-        },
         lazydev = {
           name = 'LazyDev',
           module = 'lazydev.integrations.blink',
           -- make lazydev completions top priority (see `:h blink.cmp`)
           score_offset = 100,
-        },
-        avante_mentions = {
-          name = 'avante_mentions',
-          module = 'blink.compat.source',
-          score_offset = 100, -- show at a higher priority than lsp
-          opts = {},
-        },
-        avante_commands = {
-          name = 'avante_commands',
-          module = 'blink.compat.source',
-          score_offset = 100, -- show at a higher priority than lsp
-          opts = {},
-        },
-        avante_shortcuts = {
-          name = 'avante_shortcuts',
-          module = 'blink.compat.source',
-          score_offset = 100, -- show at a higher priority than lsp
-          opts = {},
-        },
-        avante_files = {
-          name = 'avante_files',
-          module = 'blink.compat.source',
-          score_offset = 100, -- show at a higher priority than lsp
-          opts = {},
         },
       },
     },

@@ -2,8 +2,6 @@ local file_types = {
   'markdown',
   'md',
   'copilot-chat',
-  'Avante',
-  'AvanteTodos',
 }
 
 return {
