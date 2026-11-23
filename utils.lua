@@ -21,9 +21,13 @@ M.no_confirm_execute = function(confirm_value, callback)
     return confirm_value
   end
 
-  local value = callback()
-
+  local ok, value = pcall(callback)
   vim.fn.confirm = old_confirm
+
+  if not ok then
+    error(value)
+  end
+
   return value
 end
 
