@@ -34,7 +34,7 @@ return {
     install_dir = vim.fn.stdpath 'data' .. '/site',
   },
   config = function()
-    require('nvim-treesitter').install { ensure_installed }
+    require('nvim-treesitter').install(ensure_installed)
 
     -- Make nvim stfu about dock- wah wah wah
     vim.treesitter.language.register('dockerfile', 'Dockerfile')
