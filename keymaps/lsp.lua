@@ -35,7 +35,6 @@ return {
   { 'n', '<leader>le', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' } },
   { 'n', '<leader>lq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' } },
   { 'n', '<leader>lR', fzf.lsp_references, { desc = 'Show references' } },
-  { 'n', '<leader>gi', fzf.lsp_implementations, { desc = 'Show implementations' } },
 
   { 'n', '<leader>lC', '<cmd>Copilot toggle<cr>', { desc = '[R]eferences' } },
 
