@@ -1,7 +1,7 @@
-local function fzf_factory(name)
+local function fzf_factory(name, opts)
   return function()
     local fzf = require 'fzf-lua'
-    return fzf[name]()
+    return fzf[name](opts)
   end
 end
 
