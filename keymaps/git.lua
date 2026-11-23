@@ -1,4 +1,5 @@
 local gittools = require 'custom.gittools'
+local gitbug = require 'custom.gitbug'
 
 -- git restore current file and reload it
 local function restore_current_file()
@@ -20,4 +21,6 @@ return {
   { 'n', '<leader>gr', restore_current_file, { desc = 'Restore current file' } },
   { 'n', '<leader>gd', git_diff, { desc = 'Diff current file' } },
   { 'n', '<leader>gb', '<cmd>GitMessenger<cr>', { desc = 'Git blame' } },
+  { 'n', '<leader>gi', gitbug.pick, { desc = 'Open git-bug issues' } },
+  { 'n', '<leader>gI', function() gitbug.pick { all = true } end, { desc = 'All git-bug issues' } },
 }
