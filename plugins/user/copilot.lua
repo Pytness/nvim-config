@@ -5,7 +5,6 @@ return {
   event = 'InsertEnter',
   config = function()
     require('copilot').setup {
-      copilot_model = 'gpt-41-copilot',
       suggestion = {
         auto_trigger = true,
         accept = false,
